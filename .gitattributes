@@ -1,0 +1,9 @@
+* -filter
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.svg text eol=lf
+*.md text eol=lf
+*.mp4 binary
+*.jpg binary
+*.webp binary
