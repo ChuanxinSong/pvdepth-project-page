@@ -23,3 +23,18 @@ Videos are committed as ordinary Git files, not Git LFS pointers. Keep the `-fil
 The research code remains in the separate [PVDepth repository](https://github.com/ChuanxinSong/PVDepth).
 
 Figures and videos retain their original owners' rights. Refer to the paper, code repository, and dataset pages for their respective terms.
+
+## Real-world examples
+
+The gallery uses the following supplied visualization videos, in display order:
+
+| Source file | Scene |
+| --- | --- |
+| `200033_vis.mp4` | Kitesurfing |
+| `101648_vis.mp4` | Icebreaker |
+| `200038_vis.mp4` | Street |
+| `200055_vis.mp4` | Walkway |
+| `200058_vis.mp4` | Shopping mall |
+| `200139_vis.mp4` | Coastal fort |
+
+Each source is a 1024 × 1024 video with RGB in the top half and the depth visualization in the bottom half. The two halves are cropped into synchronized 1024 × 512 videos, retaining all 100 frames at 20 fps (five seconds), the original depth colors, and source watermarks. Posters use the first frame. The shopping-mall example is indoors; training uses outdoor PanoCARLA data.
