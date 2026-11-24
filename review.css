@@ -1,0 +1,235 @@
+.hero {
+  padding-top: clamp(32px, 4vw, 54px);
+}
+.paper-masthead {
+  color: #363636;
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+}
+.paper-masthead h1 {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: clamp(1.75rem, 3.25vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.paper-masthead h1 strong {
+  color: #a34828;
+  font-weight: inherit;
+}
+.paper-masthead .venue {
+  margin: 12px 0 16px;
+  color: #444;
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  letter-spacing: normal;
+}
+.paper-masthead .authors {
+  display: block;
+  margin: 0;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+}
+.authors a {
+  color: #087bb5;
+  white-space: nowrap;
+}
+.paper-masthead .affiliations {
+  margin: 4px 0;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  color: inherit;
+}
+.paper-masthead sup {
+  font-size: .68em;
+  line-height: 0;
+}
+.paper-masthead .resource-buttons {
+  display: flex;
+  gap: 8px;
+  margin: 20px auto 0;
+}
+.paper-masthead .button {
+  gap: 8px;
+  min-height: 40px;
+  padding: 6px 18px;
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  background: #363636;
+  font: inherit;
+}
+.paper-masthead .button:hover {
+  background: #242424;
+}
+.resource-buttons svg {
+  width: 1.05em;
+  height: 1.05em;
+}
+@media (max-width: 600px) {
+  .paper-masthead .resource-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+  }
+  .paper-masthead .button {
+    padding-inline: 12px;
+  }
+}
+.hero-demo {
+  margin-top: 28px;
+}
+.demo-eyebrow {
+  font-size: 15px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.demo-topbar .live-dot {
+  display: none;
+}
+.scene-heading h2 {
+  font-size: 22px;
+}
+.scene-card > span {
+  font-size: 15px;
+}
+.dataset-pipeline .dataset-stats {
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.dataset-pipeline .dataset-stats > div {
+  flex-direction: row-reverse;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border: 0;
+}
+.dataset-pipeline .dataset-stats > div + div {
+  border-top: 1px solid var(--line);
+}
+.dataset-pipeline .dataset-stats strong {
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.025em;
+}
+.dataset-pipeline .dataset-stats strong span {
+  font-size: .8em;
+}
+.dataset-pipeline .dataset-stats > div > span {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text);
+}
+.dataset .dataset-pipeline {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  justify-content: center;
+  gap: clamp(26px, 3.5vw, 52px);
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 0;
+  border-top: 0;
+}
+.pipeline-details > p {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.dataset .dataset-pipeline figure {
+  max-width: 680px;
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .dataset .dataset-pipeline {
+    grid-template-columns: 1fr;
+    max-width: 680px;
+    margin-inline: auto;
+    gap: 12px;
+  }
+}
+.progress-label {
+  color: var(--muted);
+  font-size: 14px;
+}
+.scene-card:focus-visible,
+.scene-card.active:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: -3px;
+}
+html {
+  scroll-padding-top: 1rem;
+}
+@media (max-width: 600px) {
+  .resource-buttons {
+    max-width: 390px;
+    margin-inline: auto;
+  }
+  .affiliations {
+    row-gap: 2px;
+  }
+  .citation-box pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .view-switch button,
+  .comparison-caption .text-link {
+    min-height: 44px;
+  }
+}
+@media (max-width: 360px) {
+  .paper-masthead .resource-buttons {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .paper-masthead .button {
+    font-size: 15px;
+    padding-inline: 9px;
+    gap: 5px;
+  }
+}
+
+.paper-abstract {
+  max-width: 46rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #363636;
+  margin: clamp(28px, 3vw, 44px) auto;
+  text-align: left;
+}
+.paper-abstract h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.paper-abstract p {
+  font-size: clamp(16px, 1.2vw, 17px);
+  line-height: 1.65;
+}
+.paper-abstract em {
+  font-style: normal;
+}
+.paper-abstract strong {
+  font-weight: 600;
+}
+.paper-abstract p + p {
+  margin-top: .65em;
+}
+.demo-topbar .demo-eyebrow {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.citation-section {
+  padding-block: clamp(24px, 4vw, 48px);
+}
+.citation-top h2 {
+  margin: 0;
+  font-size: 20px;
+}

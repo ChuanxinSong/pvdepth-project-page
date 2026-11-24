@@ -2,7 +2,6 @@
   'use strict';
   const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const wall=document.querySelector('#panocarla-wall');
-  const wallToggle=document.querySelector('#wall-toggle');
   const dialog=document.querySelector('#video-dialog');
   const viewer=dialog.querySelector('video');
   const title=dialog.querySelector('h3');
@@ -33,28 +32,17 @@
     if(motivationVisible&&!motivationPaused&&!document.hidden)motivation.play().catch(()=>{});
   });
   let wallVisible=false;
-  let manualPause=reducedMotion;
-  const syncToggle=()=> {
-    wallToggle.textContent=wall.paused?'Play all clips':'Pause all clips';
-    wallToggle.setAttribute('aria-label',wall.paused?'Play the PanoCARLA video wall':'Pause the PanoCARLA video wall');
-  };
-  wall.addEventListener('play',syncToggle);
-  wall.addEventListener('pause',syncToggle);
   wall.addEventListener('error',()=> {
     document.querySelector('#wall-status').textContent='Video unavailable. You can explore the dataset using the links below.';
   });
-  wallToggle.addEventListener('click',()=> {
-    if(wall.paused){manualPause=false;wall.play().catch(()=>{});}
-    else{manualPause=true;wall.pause();}
-  });
   new IntersectionObserver(entries=> {
     wallVisible=entries[0].isIntersecting;
-    if(wallVisible&&!manualPause&&!document.hidden&&!dialog.open)wall.play().catch(()=>{});
+    if(wallVisible&&!reducedMotion&&!document.hidden&&!dialog.open)wall.play().catch(()=>{});
     else if(!wallVisible)wall.pause();
   },{threshold:.12}).observe(wall);
   document.addEventListener('visibilitychange',()=> {
     if(document.hidden){wall.pause();viewer.pause();}
-    else if(wallVisible&&!manualPause&&!dialog.open)wall.play().catch(()=>{});
+    else if(wallVisible&&!reducedMotion&&!dialog.open)wall.play().catch(()=>{});
   });
   document.querySelectorAll('[data-video]').forEach(button=>button.addEventListener('click',()=> {
     wall.pause();
@@ -75,6 +63,6 @@
   dialog.addEventListener('click',event=> {if(event.target===dialog)dialog.close();});
   dialog.addEventListener('close',()=> {
     viewer.pause();viewer.removeAttribute('src');viewer.load();
-    if(wallVisible&&!manualPause&&!document.hidden)wall.play().catch(()=>{});
+    if(wallVisible&&!reducedMotion&&!document.hidden)wall.play().catch(()=>{});
   });
 })();

@@ -25,7 +25,7 @@
     return bounds.top<innerHeight&&bounds.bottom>0;
   };
   const restoreInstruction = () => {
-    instruction.textContent=sphere?'Drag either view to look around. Arrow keys also work.':'Panoramic input → temporally consistent relative depth.';
+    instruction.textContent=sphere?'Drag either view to look around. Arrow keys also work.':'';
   };
 
   function updatePlayButton() {
@@ -64,7 +64,6 @@
       item.setAttribute('aria-pressed',String(selected));
     });
     document.querySelector('#scene-title').textContent=button.dataset.title;
-    document.querySelector('#scene-caption').textContent=button.dataset.caption;
     const ready=videos.map((video,index)=>new Promise(resolve=> {
       video.addEventListener('loadeddata',resolve,{once:true});
       video.addEventListener('error',resolve,{once:true});
@@ -180,7 +179,7 @@
     document.querySelectorAll('[data-view]').forEach(item=> {
       const selected=item===button;item.classList.toggle('active',selected);item.setAttribute('aria-pressed',String(selected));
     });
-    instruction.textContent=sphere?'Drag either view to look around. Arrow keys also work.':'Panoramic input → temporally consistent relative depth.';
+    instruction.textContent=sphere?'Drag either view to look around. Arrow keys also work.':'';
     if(sphere&&rgb.readyState<2){videos.forEach(video=> {video.preload='auto';video.load();});}
   }));
 
@@ -228,9 +227,4 @@
       document.querySelector('#copy-status').textContent='BibTeX selected. Press Control C or Command C to copy.';
     }
   });
-  const navigationLinks=[...document.querySelectorAll('nav a')];
-  const sectionObserver=new IntersectionObserver(entries=> {
-    entries.forEach(entry=> {if(entry.isIntersecting)navigationLinks.forEach(link=>link.classList.toggle('current',link.hash==='#'+entry.target.id));});
-  },{rootMargin:'-15% 0px -60% 0px',threshold:0});
-  document.querySelectorAll('main section[id]').forEach(section=>sectionObserver.observe(section));
 })();
